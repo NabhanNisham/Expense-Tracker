@@ -1,57 +1,241 @@
-.expense-tracker {
-  width: 100vw;
+.head {
+  background-color: #3498db;
+  color: #fff;
+  padding: 1rem;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  color: #023047;
 }
 
-.expense-tracker h1 {
-  font-size: 40px;
-}
-.expense-tracker button {
-  margin-left: 10px;
+.head h1{
+  font-size: larger;
 }
 .profile {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-left: 200px;
 }
+
 .profile-photo {
-  width: 200px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
+  margin-right: 1rem;
 }
 
-.sign-out-button {
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
   border: none;
-  margin-top: 50px;
-  width: 150px;
-  background: #3498db;
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  border-radius: 10px;
-  color: #ffffff;
-  font-size: 22px;
-  font-weight: bold;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(255, 43, 43);
 }
 
-.sign-out-button:hover {
-  background: #3cb0fd;
 
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
-  cursor: pointer;
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+
+.Btn:active {
+  transform: translate(2px ,2px);
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.container {
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.balance {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.balance h2 {
+  color: #3498db;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+}
+
+.income,
+.expenses {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+}
+
+.income {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.expenses {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.form {
+  flex: 1;
+}
+
+.add-transaction {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-transaction input,
+.add-transaction button {
+  margin-bottom: 1rem;
+  margin-top:1rem ;
+  padding: 0.5rem;
+}
+
+.add-transaction label {
+  margin-right: 1rem;
 }
 
 .transactions {
-  margin-left: 430px;
-  margin-top: 20px;
-  padding-left: 10px;
-  width: 600px;
-  height: 400px;
-  overflow: auto;
-  border: 3px solid #023047;
+  flex: 1;
+  margin-left: 2rem;
+}
+
+.transactions h3 {
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.transactions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.transactions li {
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.transactions label {
+  font-weight: bold;
+}
+
+.transactions label[style] {
+  color: inherit;
+}
+
+.add-transaction input[type="radio"] {
+  display: none;
+}
+
+.add-transaction label {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-transaction label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.add-transaction input[type="radio"]:checked + label:before {
+  background-color: #000000; 
+}
+.sub_btn{
+  
+}
+.sub_btn {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  position: relative;
+  display: flex;
+  font-weight: 600;
+  font-size: 20px;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sub_btn:hover svg {
+  transform: translateX(4px);
+  color: red;
+}
+
+.sub_btn svg {
+  transition: 0.2s;
+  position: relative;
+  width: 15px;
+  transition-delay: 0.2s;
 }
